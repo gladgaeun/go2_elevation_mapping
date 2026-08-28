@@ -1,0 +1,81 @@
+elevation_mapping_node:
+  ros__parameters:
+    #### Basic parameters ########
+    voxel_filter_size: 0.1
+    average_weight: 0.5
+    drift_compensation_variance_inlier: 0.1
+    checker_layer: 'elevation'
+    initialized_variance: 10.0
+    resolution: 0.1
+    map_length: 20.0
+    sensor_noise_factor: 0.05
+    mahalanobis_thresh: 2.0
+    outlier_variance: 0.01
+    drift_compensation_variance_inler: 0.05
+    max_drift: 0.1
+    drift_compensation_alpha: 0.1
+    time_variance: 0.0001
+    max_variance: 100.0
+    initial_variance: 1000.0
+    traversability_inlier: 0.9
+    dilation_size: 3
+    wall_num_thresh: 20
+    min_height_drift_cnt: 100
+    position_noise_thresh: 0.01
+    orientation_noise_thresh: 0.01
+    position_lowpass_alpha: 0.2
+    orientation_lowpass_alpha: 0.2
+    min_valid_distance: 0.1
+    max_height_range: 10.5
+    ramped_height_range_a: 0.3
+    ramped_height_range_b: 1.0
+    ramped_height_range_c: 0.2
+    update_variance_fps: 5.0
+    update_pose_fps: 10.0
+    time_interval: 0.1
+    map_acquire_fps: 5.0
+    publish_statistics_fps: 1.0
+    recordable_fps: 3.0
+    enable_normal_arrow_publishing: false
+
+    max_ray_length: 10.0
+    cleanup_step: 0.1
+    cleanup_cos_thresh: 0.1
+
+    safe_thresh: 0.7
+    safe_min_thresh: 0.4
+    max_unsafe_n: 10
+
+    overlap_clear_range_xy: 4.0
+    overlap_clear_range_z: 2.0
+    map_frame: 'odom'
+    base_frame: 'base_link'
+    corrected_map_frame: 'odom'
+
+    #### Feature toggles ########
+    enable_edge_sharpen: true
+    enable_visibility_cleanup: true
+    enable_drift_compensation: true
+    enable_overlap_clearance: true
+    enable_pointcloud_publishing: false
+    enable_drift_corrected_TF_publishing: false
+    enable_normal_color: true
+
+    #### Traversability filter ########
+    use_chainer: false
+    weight_file: '/home/airlab/go2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/config/core/weights.dat'
+
+    #### Upper bound ########
+    use_only_above_for_upper_bound: false
+
+    #### Initializer ########
+    initialize_method: 'linear'
+    initialize_frame_id: ['base_link']
+    initialize_tf_offset: [0.0, 0.0, 0.0, 0.0]
+    dilation_size_initialize: 2
+    initialize_tf_grid_size: 1.0
+    use_initializer_at_start: true
+    always_clear_with_initializer: true
+
+    #### Default Plugins ########
+    plugin_config_file: '/home/airlab/go2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/config/core/plugin_config.yaml'

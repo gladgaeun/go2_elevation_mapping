@@ -1,0 +1,54 @@
+/**:
+  ros__parameters:
+    use_sim_time: true
+    plugin_config_file: '/home/airlab/go2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/config/core/plugin_config.yaml'
+
+    # C++ Node Required Booleans
+    enable_pointcloud_publishing: false
+    enable_normal_arrow_publishing: false
+    enable_drift_corrected_TF_publishing: false
+    use_initializer_at_start: false
+    always_clear_with_initializer: false
+    enable_color: true
+    enable_semantic: true
+    enable_traversability: false
+    enable_upper_bound: false
+    enable_lower_bound: false
+    enable_initial_drift_compensation: false
+    enable_edge_sharpen: false
+    enable_drift_compensation: false
+    enable_visibility_cleanup: true
+    enable_overlap_clearance: true
+    use_only_above_for_upper_bound: false
+    use_chainer: false
+
+    # Frames & Topics
+    map_frame: "odom"
+    base_frame: "base_link"
+    corrected_map_frame: "odom"
+    initialize_frame_id: ["odom"]
+    initialize_tf_offset: [0.0, 0.0, 0.0]
+    initialize_method: "nearest"
+    pose_topic: ""
+
+    pointcloud_channel_fusions:
+      none: 'none'
+
+    image_channel_fusions:
+      rgb: 'color'
+      default: 'exponential'
+
+    subscribers:
+      lidar_points:
+        topic_name: '/point_cloud2'
+        data_type: pointcloud
+      color_cam:
+        topic_name: '/camera/camera/color/image_raw'
+        camera_info_topic_name: '/camera/camera/color/camera_info'
+        data_type: image
+
+    publishers:
+      elevation_map_raw:
+        layers: ['elevation', 'variance', 'rgb']
+        basic_layers: ['elevation', 'variance']
+        fps: 10.0
